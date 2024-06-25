@@ -5,7 +5,7 @@ se ingresa a la ruta /home/autounix/EjeSox
 SE BUSCA LA FECHA se ingresa al directorio de la fecha
 SE BUSCA EL DIA se ingresa al directorio del dia
 Estando en la ruta del día se ejecuta
-ls -ltr *.2024May28.*.txt |grep -v All | wc -l
+ls -ltr *.2024Jun25.*.txt |grep -v All | wc -l
 se analiza si falta alguna maquina
 
 
@@ -26,14 +26,14 @@ luego se ejecuta : sudo sh Genera_Unix_Sox.sh
 
 *se sale de las maquinas se debe devolver a la AWX
 tener en cuenta con usuario autounix NO ROOT
-scp el01cn06:/tmp/UserSox.2024May28.* . ( se debe poner el dia se modifica solo el dia por ejemplo Feb01 por Feb02) se debe ejecutar en los 4 servidores se cambia el nombre
+scp el01cn06:/tmp/UserSox.2024Jun25.* . ( se debe poner el dia se modifica solo el dia por ejemplo Feb01 por Feb02) se debe ejecutar en los 4 servidores se cambia el nombre
 ejemplo: 
 scp gsrcmdbtri27:/tmp/UserSox.2024Feb01.* .
 
 
 se debe ejecutar el siguiente comando:
 
-ls -ltr *.2024Feb01.*.txt |grep -v All | wc -l
+ls -ltr *.2024Jun25.*.txt |grep -v All | wc -l
 
 se debe borrar 
 All_Server_Sox.2024Jan31.txt
@@ -44,7 +44,7 @@ luego ir a la ruta
 /home/autounix/EjeSox 
 y ejecutar el SacoManual_User_Sox.sh
 
-luego devolverme a la ruta de /home/autounix/EjeSox/2024Feb/Feb01
+luego devolverme a la ruta de /home/autounix/EjeSox/2024Jun/Jun25
 y ejecutar los dos comandos siguientes:
 
 scp Server_Sox*.tar.gz 172.23.50.156:/home/autounix/
@@ -58,6 +58,9 @@ datos:
 usuario: comcel\Rconfpa
 
 contraseña: LoUs1Un1x.2023a
+
+evidencia con: 
+hostname;date;cat nocnx.out ; ls -ltr *.2024Jun25.*.txt |grep -v All | wc -l
 
 natalia.rodriguez.ext@claro.com.co
 maria.cundumi@claro.com.co
