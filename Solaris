@@ -10,3 +10,5 @@ sudo /usr/sbin/virtinfo -a
 
 ldm list-services | grep EYQ0021
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+iostat -nx |more
+asvc_t -> si esta columna es superior a 100 hay contencion en los discos, acá se evidencia si el disco esta lento.
