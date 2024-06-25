@@ -1,0 +1,65 @@
+Ingresar al servidor awx
+Subir al usuario autounix
+
+se ingresa a la ruta /home/autounix/EjeSox
+SE BUSCA LA FECHA se ingresa al directorio de la fecha
+SE BUSCA EL DIA se ingresa al directorio del dia
+Estando en la ruta del día se ejecuta
+ls -ltr *.2024May28.*.txt |grep -v All | wc -l
+se analiza si falta alguna maquina
+
+
+en dado caso que falten se hace lo siguiente:
+
+hacerle un cat nocnx.out
+el01cn06
+el01cn08
+gsrcmdbtri27 ( no se genera automaticamente)
+gsrcmdbtri28 ( no se genera automaticamente)
+lnxictapp maquina apagada
+lnxprepcsg maquina apagada
+ 
+se ingresa a las 4 maquinas 
+
+luego se va a tools
+luego se ejecuta : sudo sh Genera_Unix_Sox.sh
+
+*se sale de las maquinas se debe devolver a la AWX
+tener en cuenta con usuario autounix NO ROOT
+scp el01cn06:/tmp/UserSox.2024May28.* . ( se debe poner el dia se modifica solo el dia por ejemplo Feb01 por Feb02) se debe ejecutar en los 4 servidores se cambia el nombre
+ejemplo: 
+scp gsrcmdbtri27:/tmp/UserSox.2024Feb01.* .
+
+
+se debe ejecutar el siguiente comando:
+
+ls -ltr *.2024Feb01.*.txt |grep -v All | wc -l
+
+se debe borrar 
+All_Server_Sox.2024Jan31.txt
+All_Server_Sox.2024Jan31.csv
+Server_Sox2024Jan31.tar.gz
+
+luego ir a la ruta 
+/home/autounix/EjeSox 
+y ejecutar el SacoManual_User_Sox.sh
+
+luego devolverme a la ruta de /home/autounix/EjeSox/2024Feb/Feb01
+y ejecutar los dos comandos siguientes:
+
+scp Server_Sox*.tar.gz 172.23.50.156:/home/autounix/
+ 
+ssh -q -tt 172.23.50.156 sudo /home/autounix/.Mount.sh
+
+se debe tomar pantallazo de consola y ruta compartida
+datos:
+\\172.22.83.50\ReportesCompensatorioSOX\UNIX-REPORTE-SOX
+
+usuario: comcel\Rconfpa
+
+contraseña: LoUs1Un1x.2023a
+
+natalia.rodriguez.ext@claro.com.co
+maria.cundumi@claro.com.co
+sandra.gomez@claro.com.co
+elizabeth.campillo.ext@claro.com.co
