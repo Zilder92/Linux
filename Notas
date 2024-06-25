@@ -16,6 +16,7 @@ umount.nfs: /mnt: device is busy
 
 ejecutar sudo umount -l /mnt
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Linea de creación
 Maquinas DC
 useradd -d /home/ec5149n -g admtmx -G admtmx -s /bin/bash -c "AlgarTech SA -Administrador N1 Unix Silder Mauricio Quinones Sanchez - C.C 1096215149 - RF1574463" ec5149n
 
