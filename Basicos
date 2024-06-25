@@ -1,32 +1,23 @@
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+ntpq -p   -- > validacion de sincronización hora
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+du -h --max-depth=1 -x /
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+sudo scp -r  ec5149n@172.22.16.179: /usr/bin/
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+lsblk
+iostat -xdm - > tiempos de los discos
 iostat -xh - > validar discos de s.o
-sudo /opt/hpvm/bin/hpvmstatus  - > mirar que maquinas virtuales contiene esta en AIX
-
-for h in `cat 111`; do ssha1 $h "sudo cat /etc/yum.repos.d/local.repo"; done
+multipath -ll | grep -E "(^dm|^size|active|^status)” = buscar por tamaño
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 permiso: setfacl -R -m u:usuario:rwx /direccion completa
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-multipath -ll | grep -E "(^dm|^size|active|^status)” = buscar por tamaño
-
-iostat -xdm - > tiempos de los discos
-
-cuando no aparezca fs
-
-se valida el fstab a ver si hay nfs
-se procede a dar sudo mount para montarlo
-
-se hace prueba
-
-luego sudo umount/mnt
-
-si aparece:
-
-umount.nfs: /mnt: device is busy
-umount.nfs: /mnt: device is busy
-
-ejecutar sudo umount -l /mnt
------------------------------------------------------------------------------------------------------------------------
 como reiniciar el ASM para maquina D1 NODE1:
 
 BCTNODE1:/root> # export ORACLE_HOME=/grid/app/19.0.0/grid
@@ -34,7 +25,8 @@ BCTNODE1:/root> # export ORACLE_HOME=/grid/app/19.0.0/grid
 BCTNODE1:/root> # cd $ORACLE_HOME/bin
 
 BCTNODE1:/grid/app/19.0.0/grid/bin> # ./crsctl start crs
------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 alias sshaaa='sshpass -f /home/silder/.contraseña ssh -o StrictHostKeyChecking=no -tl usuario $1'  (el $1 es la ip que se va a poner y sshaaa es el alias ) (se cambia user por el usuario)
 
@@ -45,4 +37,36 @@ ls -l /proc/numero_de_PID/FD (se pone solo FD)/NUMERO DE FD SOLO NUMERO
 luego aparece
 /proc/PID/fd/6 -> ruta de deleted
 cat /dev/null > /proc/PID/fd/6 (este es el que lo vacía)
------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+top –d 5 (Donde 5 es el número de segundos a transcurrir entre cada muestreo)
+
+top –o %CPU (Donde %CPU es el valor por el que vamos a ordenar los procesos )
+
+top –u toushiro (Donde Toushiro es el usuario del cual queremos mostrar los procesos)
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+para apagar memoria swap
+
+swapoff -a
+swapon -a
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+lvextend -L +5G -r /dev/mapper/vg00-lv_varlog 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+sudo service iptables status --> validar firewall
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------
+/opt/commvault/iDataAgent/jobResults/2
+se pueden vaciar > CollectTot93.cvf
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+rdm > fisico
+multipath -ll | grep -E "(^dm|^size|active|^status)” = buscar por tamaño
+lsscsi --scsi_id --size --wwn
+[1:0:1:0] > primero es la controladora y la tercera es el numero de disco en este caso controladora 1 y un disco
+script verlun > me permite ver las lun de los discos (lun identificador del disco)
+script scanhba > scanear las fibras ver si un disco fue ampliado
+multipath > servicio que administra discos fisicos
+multipath -rr --> Para hacer un reload y que tome el alias el disco
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------

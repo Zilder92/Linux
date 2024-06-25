@@ -1,0 +1,12 @@
+echo "::memstat" | mdb -k --> Ver consumo de memoria solaris
+
+vmstat 1 5   -->> la columna “id” un valor cercano a 100 indica que hay mucho recurso de CPU 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Ver lum en solaris
+
+sudo ldm list-services |grep EYQ0021
+
+sudo /usr/sbin/virtinfo -a
+
+ldm list-services | grep EYQ0021
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------

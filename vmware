@@ -1,0 +1,87 @@
+# vmware
+
+Vcenter MegaCenter --> https://vcmegacenter.datacenterdhs.local/ (172.20.90.2) --> OK
+
+WebVcenter Nuevo_triara --> https://vcsatriara.datacenterdhs.local/ (172.22.1.240) --> OK
+
+WebVcenter Nuevo_Ortezal --> https://vcsaortezal.datacenterdhs.local/ (172.22.1.241) --> OK
+
+WebVcenter SAP HEC --> https://vcentersaphec.datacenterdhs.local/ --> OK
+
+WebVcenter GTD Previsora --> [https://vcsagtdprevisora.datacenterdhs.local](https://vcsagtdprevisora.datacenterdhs.local/) --> OK
+
+WebHuawei --> https://auth.scprivate.claro.co/ --> OK
+
+INSPIRA —> https://wfm0006-vcent.datacenterdhs.local/  → OK
+
+Web Vcenter Comfenalco Replica --> https://vcsarepcomfe-mega.datacenterdhs.local/ --> No responde a ping
+
+Vcenter SAP --> [https://172.22.1.245](https://172.22.1.245/) (problema conexión web - Flash)
+
+Vcenter Triara 1 --> [https://172.22.1.182](https://172.22.1.182/) (problema conexión web - Flash)
+
+Vcenter Ortezal --> [https://172.22.1.31](https://172.22.1.31/) (problema conexión web - Flash)
+
+Vcenter Compensar --> https://172.22.24.4/ (problema conexión web - Flash)
+
+Vcenter Comfenalco --> https://172.18.215.32/ (problema conexión web - Flash)
+
+Vcenter Cloud --> https://172.18.81.5/ui/ (problema conexión web - Flash)
+
+Vcenter Triara3 --> https://172.22.1.51/ --> (problema conexión web - Flash)
+
+Vcenter Ortezal —> [https://vcsareptri-ort.datacenterdhs.local](https://vcsareptri-ort.datacenterdhs.local/) —→ OK
+
+Vcenter Venecia → [172.23.50.143]([https://www.notion.so/172-22-1-240-81400c87d10d4784a2cdacacf2287935?pvs=21)](https://www.notion.so/81400c87d10d4784a2cdacacf2287935?pvs=21) —> OK
+
+Vcenter Puente-Aranda → [172.22.52.105]([https://www.notion.so/172-22-1-240-81400c87d10d4784a2cdacacf2287935?pvs=21)](https://www.notion.so/81400c87d10d4784a2cdacacf2287935?pvs=21) —> OK
+
+Vcenter Triara Centralizado → https://vcsatriara-ext.datacenterdhs.local/ → OK
+
+Vcenter Triara Interno https://vcsatriara-int.datacenterdhs.local/
+
+vcsatriara
+
+https://172.22.1.133/ui/app/vm;nav=v/urn:vmomi:VirtualMachine:vm-217264:7a93d75d-f4ee-4ec8-b02b-6341579c7639/summary
+
+HMC
+
+https://10.110.0.101/hmc/connect --> OK Webhttps://10.110.192.4/hmc/connect --> OK Webhttps://10.110.192.4/dashboard/#resources/systemsUsuario: --> Ok Webhttps://10.110.0.101/hmc/connect: --> Ok Web
+
+https://192.168.68.92/hmc/connect --> No responde a pinghttps://172.22.87.200/hmc/connect --> No responde a pinghttps://172.18.86.177/hmc/connect --> No responde a pinghttps://192.168.68.92/hmc/connectUsuario: --> No responde a pinghttps://172.22.87.200/dashboard/#resources/systemsUsuario: --> No responde a ping
+
+cmp0192.datacenterdhs.local  172.22.24.4
+
+VCENTERFUP.DATACENTERDHS.LOCAL  172.22.24.5
+
+VCENTEREXITO.DATACENTERDHS.LOCAL  172.22.4.151
+
+vcentersaphec.datacenterdhs.local  172.22.1.238
+
+vcenterassenda.datacenterdhs.local  172.22.1.20
+
+vcentertriara.datacenterdhs.local  172.22.1.182
+
+vcenterdhsort.datacenterdhs.local  172.22.1.31
+
+vcsatriara.datacenterdhs.local  172.22.1.240
+
+vcenterpruebas.datacenterdhs.local  172.22.4.65
+
+vcenterdhs.DATACENTERDHS.LOCAL  172.22.1.19
+
+vcmegacenter.datacenterdhs.local  172.20.90.2
+
+vcsaexito.datacenterdhs.local  172.20.90.40
+
+vcsaortezal.datacenterdhs.local  172.22.1.241
+
+vcsamegacenter.datacenterdhs.local  172.20.90.14
+
+vcsaprevisora.datacenterdhs.local  172.18.215.171
+
+vcsagtdprevisora.datacenterdhs.local  100.64.0.22
+
+Valorem  172.18.215.170
+
+vcsacomfenalco.datacenterdhs.local  172.18.215.32

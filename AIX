@@ -1,0 +1,1 @@
+sudo /opt/hpvm/bin/hpvmstatus  - > mirar que maquinas virtuales contiene esta en AIX
