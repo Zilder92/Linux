@@ -1,4 +1,12 @@
-
+rpcbind.service abre un puerto creo que es el 1111 y permite montar los servicios de nfs-client.target
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Para reiniciar los servicios apache de las maquinas AGENDAMIENTOS se hace lo siguiente
+primero se valida con ps -fea | httpd 
+ANTES DE MATAR PROCESO SE DEBE PREGUNTAR SI EL SERVICIO ESTA ARRIBA 
+si hay proceso matarlo con kill -9
+luego ejecutar sh /etc/init.d/Servidor_Apache.sh start
+luego para ver el estado
+sh /etc/init.d/Servidor_Apache.sh status
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 cuando no aparezca fs
 
@@ -10,6 +18,7 @@ se hace prueba
 luego sudo umount/mnt
 
 si aparece:
+
 
 umount.nfs: /mnt: device is busy
 umount.nfs: /mnt: device is busy
