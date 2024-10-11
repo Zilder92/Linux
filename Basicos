@@ -1,3 +1,18 @@
+Infoprepos manual
+(uptime; cat /etc/*release; uname -a; df -Th; cat /etc/fstab; ifconfig -a; ip r; lscpu; free -h; cat /etc/passwd; cat /etc/group; cat /etc/hosts; netstat -an | grep -v tcp6 | grep LISTEN | sort -k 4) > /home/ec5149n/Infoprepost_manual_$(hostname)_$(date +%F).txt && sudo chown ec5149n:admserve /home/ec5149n/Infoprepost_manual_$(hostname)_$(date +%F).txt
+
+
+echo "- - -" | tee /sys/class/scsi_host/host*/scan
+escaneando los discos asm
+lsscsi --scsi_id --size --wwn |grep -i fa57 (se borra los :)
+busco la lun el identificador del disco ejemplo
+[1:0:26:0]   disk    0x60060e8012bcc1005040bcc10000fa57  /dev/sdae  360060e8012bcc1005040bcc10000fa57  32.2GB
+se ve que esta en el disco /dev/sdae
+airazor:/dev> lsscsi --scsi_id --size --wwn |grep -i 00FA5
+[1:0:27:0]   disk    0x60060e8012bcc1005040bcc10000fa58  /dev/sdaf  360060e8012bcc1005040bcc10000fa58  32.2GB
+para particionar el disco es con fdisk luego se pone n
+luego p
+y el resto solo enter enter enter y enter y se pone wluego control c
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 scp user@host:/archivo/remoto /ruta/final/

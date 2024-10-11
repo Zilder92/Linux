@@ -1,3 +1,50 @@
+
+1- lsblk e identificar el disco (ultimo)
+2- fdisk /dev/sdj (validamos si el disco tiene particiones lo cual no deberia ser asi)
+3- vgs validamos los volume groups
+4- pvcreate /dev/sdj (Es el comando que inicializa un disco o una partición para ser utilizado como un volumen físico en LVM.)
+5- vgcreate vgaud /dev/sdj (vgaud es el volume group y el sdj es el disco, aca es donde se asigna)
+6- lvcreate -L+199.9G -n lv_auditlog /dev/mapper/vgaud (se le asigna los 200GB al)
+lvcreate: Es el comando utilizado para crear un volumen lógico (LV) dentro de un grupo de volúmenes (VG) en el contexto de la gestión de volúmenes lógicos (LVM).
+-L +199.9G: Especifica el tamaño del volumen lógico que deseas crear. La opción +199.9G indica que se agregará 199.9 GB de espacio al volumen lógico en lugar de asignar exactamente 199.9 GB. Esto es útil si estás extendiendo un volumen lógico ya existente.
+-n lv_auditlog: Esta opción asigna un nombre al volumen lógico que estás creando. En este caso, el nombre será lv_auditlog.
+/dev/mapper/vgaud: Especifica el grupo de volúmenes (vgaud) donde se creará o extenderá el volumen lógico. El camino /dev/mapper/vgaud es la forma común de referirse a un grupo de volúmenes en LVM.
+Este comando crea un nuevo volumen lógico llamado lv_auditlog dentro del grupo de volúmenes vgaud, añadiendo 199.9 GB al tamaño del volumen lógico. Si el volumen lógico lv_auditlog ya existía, este comando aumentaría su tamaño en 199.9 GB.
+7- df -hT (se valida que tipo fs es en este caso es xfs)
+8- mkfs.xfs /dev/mapper/vgaud/lv_auditlog (convierte el fs a xfs)
+9- mkdir -p /usr/sap/AuditLog (crea la ruta)
+10- backup: mkdir /opt/.backup
+cp -p /etc/fstab /opt/.backup/fstab_30-08-2024_ec5149n
+11- editar el archivo fstab
+vim /etc/fstab
+/dev/mapper/vgaud-lv_auditlog /usr/sap/AuditLog xfs     defaults        1 2 (el 1 2 son para file system que no sean del s.o y 0.0 deben ponerse)
+12- mount -a
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+con sudo ldm list
+NAME             STATE      FLAGS   CONS    VCPU  MEMORY   UTIL  NORM  UPTIME
+primary          active     -n-cv-  UART    8     16G      8.0%  7.9%  1517d 6h (siempre es la maquina fisica primero el resto son ldom)
+EYQ0016          active     -n----  5009    32    48G       17%   17%  358d 19h
+FDB0117          active     -n----  5004    16    64G       10%   10%  12d 8h 6m
+FDB0396          active     -n----  5002    32    34048M   0.9%  0.9%  2d 1h 13m
+FDB0462          active     -n----  5000    16    70G      5.7%  5.6%  185d 22h
+FDB0466          active     -n----  5003    8     16G      1.5%  1.4%  320d 11h
+RKFL000473       active     -n----  5001    4     32G      0.5%  0.5%  6d 22h 7m
+
+
+para saber que maquina fisica almacena la virtual es con virtinfo -a 
+para ver las hba wwn en solaris es con (esto se hace en los ldom o maquinas fisicas que almacenan las virtuales) : sudo fcinfo hba-port
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+strace df -h ( le hacemos seguimiento al punto de montaje que queda pegado)
+luego le damos umount -l
+
+
+
+cat /etc/exports
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 rpcbind.service abre un puerto creo que es el 1111 y permite montar los servicios de nfs-client.target
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Para reiniciar los servicios apache de las maquinas AGENDAMIENTOS se hace lo siguiente
