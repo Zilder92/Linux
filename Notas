@@ -1,10 +1,47 @@
+################################Servicio apache #############################
+ 
+#Agendamiento reiniciar apache
+ 
+ 
+/etc/init.d/Servidor_Apache.sh status
+ 
+/etc/init.d/Servidor_Apache.sh stop
+ 
+/etc/init.d/Servidor_Apache.sh start
+ 
+/etc/init.d/Servidor_Apache.sh status
+ 
+ 
+validar procesos con =
+ 
+ps -fea |grep httpd
+ 
+si se evidencian procesos pegados darles kill -9 y el codigo
+
+############AIX DATAPROCESOR ###########################
+lssrc -s inetd ----------> estatus der servicio de inetd
+stopsrc -s inetd ---------> para estopiar el servicio
+startsrc -s inetd --------> para inicializarlo
+############AIX DATAPROCESOR ###########################
+########################### HP-UX ###########################
+
+dataprotector
+
+ps -fea| grep /bsm ---> para ver los procesos de dataprotector
+swlist -l product ---> para ver los servicios
+
+/sbin/init.d/inetd stop
+/sbin/init.d/inetd start
+########################### HP-UX ###########################
 
 1- lsblk e identificar el disco (ultimo)
+con el comando ls -ltr /dev/sdm se puede ver de cuanto presentaron el disco
 2- fdisk /dev/sdj (validamos si el disco tiene particiones lo cual no deberia ser asi)
 3- vgs validamos los volume groups
 4- pvcreate /dev/sdj (Es el comando que inicializa un disco o una partición para ser utilizado como un volumen físico en LVM.)
 5- vgcreate vgaud /dev/sdj (vgaud es el volume group y el sdj es el disco, aca es donde se asigna)
-6- lvcreate -L+199.9G -n lv_auditlog /dev/mapper/vgaud (se le asigna los 200GB al)
+sudo vgdisplay -v vgdata se puede ver si esta creado el vgdata o el vg a crear
+6- lvcreate -L+199.9G -n lv_auditlog /dev/mapper/vgaud (se le asigna los 200GB al) o tambien con sudo lvcreate -l 100%FREE -n lvbackup vgbackup
 lvcreate: Es el comando utilizado para crear un volumen lógico (LV) dentro de un grupo de volúmenes (VG) en el contexto de la gestión de volúmenes lógicos (LVM).
 -L +199.9G: Especifica el tamaño del volumen lógico que deseas crear. La opción +199.9G indica que se agregará 199.9 GB de espacio al volumen lógico en lugar de asignar exactamente 199.9 GB. Esto es útil si estás extendiendo un volumen lógico ya existente.
 -n lv_auditlog: Esta opción asigna un nombre al volumen lógico que estás creando. En este caso, el nombre será lv_auditlog.
@@ -12,7 +49,8 @@ lvcreate: Es el comando utilizado para crear un volumen lógico (LV) dentro de u
 Este comando crea un nuevo volumen lógico llamado lv_auditlog dentro del grupo de volúmenes vgaud, añadiendo 199.9 GB al tamaño del volumen lógico. Si el volumen lógico lv_auditlog ya existía, este comando aumentaría su tamaño en 199.9 GB.
 7- df -hT (se valida que tipo fs es en este caso es xfs)
 8- mkfs.xfs /dev/mapper/vgaud/lv_auditlog (convierte el fs a xfs)
-9- mkdir -p /usr/sap/AuditLog (crea la ruta)
+9- mkdir -p /usr/sap/Au
+ditLog (crea la ruta)
 10- backup: mkdir /opt/.backup
 cp -p /etc/fstab /opt/.backup/fstab_30-08-2024_ec5149n
 11- editar el archivo fstab
@@ -72,6 +110,14 @@ umount.nfs: /mnt: device is busy
 
 ejecutar sudo umount -l /mnt
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Linea creacion HPUX
+sudo useradd -g admserve -d /export/home/ec5149n -m -c "AlgarTech SA - Administrador N1 Unix Silder Mauricio Quinones Sanchez - WO0000002726419 - Administrador Unix N1 - CC 1096215149" -s /usr/bin/ksh ec5149n
+
+sudo useradd -g admtmx -d /home/ec5149n -m -c "AlgarTech SA - Administrador N1 Unix Silder Mauricio Quinones Sanchez - WO0000002726419 - Administrador Unix N1 - CC 1096215149" -s /usr/bin/ksh ec5149n
+
+
+
+
 Linea de creación
 Maquinas DC
 useradd -d /home/ec5149n -g admtmx -G admtmx -s /bin/bash -c "AlgarTech SA -Administrador N1 Unix Silder Mauricio Quinones Sanchez - C.C 1096215149 - RF1574463" ec5149n
