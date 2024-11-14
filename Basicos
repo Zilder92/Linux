@@ -1,3 +1,14 @@
+Credenciales VIOS
+padmin
+A1XP0w3r!!
+
+last -Fxn2 shutdown reboot
+Si sale una línea con reboot y otra con shutdwon es un reinicio controlado
+Si salen dos líneas con reboot es un reinicio abrupto
+
+find /var/log/audit/ -type f -name "audit.log.**" -mtime +40  |awk '{print "gzip " $NF}' |sh
+comprimir 
+
 Infoprepos manual
 (uptime; cat /etc/*release; uname -a; df -Th; cat /etc/fstab; ifconfig -a; ip r; lscpu; free -h; cat /etc/passwd; cat /etc/group; cat /etc/hosts; netstat -an | grep -v tcp6 | grep LISTEN | sort -k 4) > /home/ec5149n/Infoprepost_manual_$(hostname)_$(date +%F).txt && sudo chown ec5149n:admserve /home/ec5149n/Infoprepost_manual_$(hostname)_$(date +%F).txt
 
@@ -33,7 +44,7 @@ copiar fs
 rsync -av /DATA/EPS012 /mnt/ & 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 comprimir y generar copiar y fecha a la vez:
-gzip -c mail.warn>mail.warn$(date +%d%b%Y-%H%M).gz && >mail.warn
+gzip -9f -c messages>messages$(date +%d%b%Y-%H%M).gz && >messages
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ntpq -p   -- > validacion de sincronización hora
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------

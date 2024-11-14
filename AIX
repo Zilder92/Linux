@@ -1,3 +1,5 @@
 sudo /opt/hpvm/bin/hpvmstatus  - > mirar que maquinas virtuales contiene esta en AIX
 
 sudo du -s /* | sort -rn | head -n 10    -> validar raiz en aix
+
+find /opt -xdev -size +100000 -exec ls -latr {} \; (es en hp ux para buscar lo que mas pesa)

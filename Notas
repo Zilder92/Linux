@@ -1,3 +1,37 @@
+################################ Maquina en modo mantenimiento ################################
+1) Presentar iso del s.o el mismo ya que se ha presentado incompatibilidad anteriores veces
+2) 
+3)
+4)
+5)
+6)
+7)
+8)
+9)
+10)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ################################Servicio apache #############################
  
 #Agendamiento reiniciar apache
@@ -127,11 +161,11 @@ Linea solaris
 useradd -c /home/ec5149n -g admtmx -G admtmx -s /bin/bash -c "AlgarTech SA - Datacenter unix N1 Silder Mauricio Quinones Sanchez - C.C 1096215149 - RF1574463" ec5149n
 
 Maquinas IT
-useradd -d /home/ec5149n -g admtmx  -G admtmx  -s /bin/bash -c "AlgarTech SA - Administrador N1 Unix - Silder Mauricio Quinones Sanchez - C.C 1096215149 - WO0000002726419" ec5149n
+useradd -d /home/ec5149n -g admserve  -G admserve  -s /bin/bash -c "AlgarTech SA - Administrador N1 Unix - Silder Mauricio Quinones Sanchez - C.C 1096215149 - WO0000002726419" ec5149n
 ------------------------------------------------------------------------------------
 find audit.log* |grep -v gz (el -v gz es para omitir los comprimidos)
 find audit.log.* -type f |grep -v gz > comprimir.txt
-xargs gzip -9f < comprimir.txt ----> xargs es como hacerle un cat al archivo txt
+xargs gzip -9f < comprimir.txt & ----> xargs es como hacerle un cat al archivo txt
 ------------------------------------------------------------------------------------
 Se valida la lun que se presenteto desde almacenamiento ---> multipath -ll | grep 6000d31001568e00000000000000028b
 Si no se ve la lun, ejecutar script sh /usr/bin/tools/scanhba
